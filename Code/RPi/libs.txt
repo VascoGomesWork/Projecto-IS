@@ -1,0 +1,8 @@
+mosquitto
+requests
+paho-mqtt
+pymongo
+picamera
+uvicorn
+fastapi
+passlib

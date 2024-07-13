@@ -1,0 +1,171 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../shared/vendor/">
+    <link href="../../shared/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../shared/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="../../shared/vendor/jquery/jquery.min.js"></script>
+<script src="../../shared/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../../shared/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../../shared/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../../shared/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../../shared/js/demo/chart-area-demo.js"></script>
+<script src="../../shared/js/demo/chart-pie-demo.js"></script>
+
+<body style="background-color: #AD63FF;">
+
+    <div>
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <img style="padding-top: 33%;" width="120%" src="../../../assets/img/ParkLooUp_Logo.png">
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 *ngIf="this.isHandicap == true" class="h4 text-gray-900 mb-4">Visualizar Detalhes da Reserva</h1>
+                                <h1 *ngIf="this.isHandicap == false" class="h4 text-gray-900 mb-4">Visualizar Detalhes do Parque</h1>
+                            </div>
+                            <form class="user">
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+
+                                    <div class="form-group row">
+                                        <!-- Cidade -->
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input style="color: white;" type="email" class="form-control form-control-user" id="cidade" name="cidade"
+                                                value="{{cidade}}" readonly>
+
+                                            
+                                        </div>
+
+                                        <!-- Nome do Parque -->
+                                        <div class="col-sm-6">
+                                            <input style="color: white;" type="email" class="form-control form-control-user" id="nomeParque"
+                                            value={{parkName}} readonly>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Lugar -->
+                                    <div class="form-group">
+                                        <input style="color: white;" type="email" class="form-control form-control-user" id="lugar"
+                                        value={{spot}} readonly>
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <!-- Latitude -->
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input style="color: white;" type="email" class="form-control form-control-user" 
+                                                id="latitude" value={{latitude}} readonly>
+                                        </div>
+
+                                        <!-- Longitude -->
+                                        <div class="col-sm-6">
+                                            <input style="color: white;" type="email" class="form-control form-control-user"
+                                                id="longitude" value={{longitude}} readonly>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="this.isHandicap == true" class="form-group row">
+
+                                        <!-- Data Inicio -->
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input style="color: white;" type="email" class="form-control form-control-user" 
+                                                id="dataInicio" value={{dataInicio}} readonly>
+                                        </div>
+
+                                        <!-- Data Fim -->
+                                        <div class="col-sm-6">
+                                            <input style="color: white;" type="email" class="form-control form-control-user"
+                                                id="dataFim" value={{dataFim}} readonly>
+                                        </div>
+                                    </div>
+
+
+                                    
+
+                                    </div>
+                            
+
+        
+                                    <!-- Veículo -->
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+
+                                    <!-- Matricula -->
+                                    <div class="form-group">
+                                        <input style="color: white;" type="email" class="form-control form-control-user" id="matricula"
+                                        value={{matricula}} readonly>
+                                    </div>
+
+                                    <!-- Marca -->
+                                    <div class="form-group">
+                                        <input style="color: white;" type="email" class="form-control form-control-user" id="marca"
+                                        value={{marca}} readonly>
+                                    </div>
+
+                                    <!-- Tipo de Combustivel -->
+                                    <div class="form-group">
+                                        <input style="color: white;" type="email" class="form-control form-control-user" id="tipoCombustivel"
+                                        value={{tipoCombustivel}} readonly>
+                                    </div>
+
+                                    <!-- Tipo de Veículo -->
+                                    <div class="form-group">
+                                        <input style="color: white;" type="email" class="form-control form-control-user" id="tipoVeiculo"
+                                        value={{tipoVeiculo}} readonly>
+                                    </div>
+
+                                    </div>
+                                </div>
+
+                                <button *ngIf="this.isHandicap == true" class="btn btn-primary btn-user btn-block" style="background-color: #AD63FF; " (click)="goBack()">
+                                    Voltar ás Reservas
+                                </button>
+
+                                <button *ngIf="this.isHandicap == false" class="btn btn-primary btn-user btn-block" style="background-color: #AD63FF; " (click)="goBack()">
+                                    Voltar aos Parques Visitados
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>

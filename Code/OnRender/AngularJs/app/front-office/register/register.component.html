@@ -1,0 +1,265 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../shared/vendor/">
+    <link href="../../shared/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../shared/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="../../shared/vendor/jquery/jquery.min.js"></script>
+<script src="../../shared/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../../shared/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../../shared/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../../shared/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../../shared/js/demo/chart-area-demo.js"></script>
+<script src="../../shared/js/demo/chart-pie-demo.js"></script>
+
+<body style="background-color: #AD63FF;">
+
+    <div>
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <img style="padding-top: 33%;" width="120%" src="../../../assets/img/ParkLooUp_Logo.png">
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Criação de Conta!</h1>
+                            </div>
+                            <form [formGroup]="registerForm" (submit)="regist()" class="user">
+                                
+                                <div class="form-group row">
+                                    <!-- Nome -->
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+
+                                    <div class="form-group row">
+                                        <!-- Nome -->
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="email" class="form-control form-control-user" id="nome" name="nome"
+                                                placeholder="Nome" required formControlName="nome">
+
+                                            <div *ngIf="nome.invalid && nome.touched">
+                                                <small style="color: red;" *ngIf="nome.errors?.['required']">O nome é obrigatório.</small>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <!-- Apelido -->
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control form-control-user" id="apelido"
+                                                placeholder="Apelido" required formControlName="apelido">
+
+                                            <div *ngIf="apelido.invalid && apelido.touched">
+                                                <small style="color: red;" *ngIf="apelido.errors?.['required']">O apelido é obrigatório.</small>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Telemovel -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="telemovel"
+                                            placeholder="Telemóvel" required formControlName="telemovel">
+
+                                        <div *ngIf="telemovel.invalid && telemovel.touched">
+                                            <small style="color: red;" *ngIf="telemovel.errors?.['required']">O telemóvel é obrigatório.</small>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="email" 
+                                            placeholder="Email" required formControlName="email">
+
+                                        <div *ngIf="email.invalid && email.touched">
+                                            <small style="color: red;" *ngIf="email.errors?.['required']">O email é obrigatório.</small>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Morada -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="morada"
+                                            placeholder="Morada" required formControlName="morada">
+
+                                        <div *ngIf="morada.invalid && morada.touched">
+                                            <small style="color: red;" *ngIf="morada.errors?.['required']">A morada é obrigatória.</small>
+                                        </div>    
+                                        
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <!-- Password -->
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="password" class="form-control form-control-user" 
+                                                id="password" ngModel placeholder="Password" required formControlName="password">
+
+                                            <div *ngIf="password.invalid && password.touched">
+                                                <small style="color: red;" *ngIf="password.errors?.['required']">A password é obrigatória.</small>
+                                            </div> 
+
+                                        </div>
+
+                                        <!-- Repeat Password -->
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="repeatPassword" ngModel placeholder="Repetir Password" required formControlName="repeatPassword">
+
+                                            <div *ngIf="repeatPassword.invalid && repeatPassword.touched">
+                                                <small style="color: red;" *ngIf="repeatPassword.errors?.['required']">A repetição da password é obrigatória.</small>
+                                                
+                                            </div>     
+                                            <div *ngIf="repeatPassword.touched">
+                                            <small style="color: red;" *ngIf="repeatPassword.value != password?.value">As passwords inseridas são diferentes.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    
+
+                                    </div>
+                            
+
+        
+                                    <!-- Veículo -->
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+
+                                    <!-- Matricula -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="matricula"
+                                            placeholder="Matrícula do Veículo Ex: AA-00-AA" required formControlName="matricula">
+
+                                        <div *ngIf="matricula.invalid && matricula.touched">
+                                            <small style="color: red;" *ngIf="morada.errors?.['required']">A matricula é inválida.</small>
+                                        </div>   
+
+                                    </div>
+
+                                    <!-- Marca -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="marca"
+                                            placeholder="Marca" required formControlName="marca">
+
+                                        <div *ngIf="marca.invalid && marca.touched">
+                                            <small style="color: red;" *ngIf="morada.errors?.['required']">A marca é inválida.</small>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Tipo de Carroceria -->
+                                    <div class="form-group">
+
+                                        <select class="form-combobox" id="tipoCarroceria" required formControlName="tipoCarroceria" 
+                                        [value]="tipoCarroceria.value">
+                                            <option class="form-control-user" value ="1" selected>Selecione uma opção</option>
+                                            <option class="form-control-user" value="Sedan">Sedan</option>
+                                            <option class="form-control-user" value="Hatchaback">Hatchaback</option>
+                                            <option class="form-control-user" value="PickUp">PickUp</option>
+                                            <option class="form-control-user" value="Carrinha">Carrinha</option>
+                                            <option class="form-control-user" value="SUV">SUV</option>
+                                            <option class="form-control-user" value="Desportivo">Desportivo</option>
+                                        </select>
+
+                                        
+                                        <div *ngIf="tipoCarroceria.invalid && tipoCarroceria.touched">
+                                            <small style="color: red;" *ngIf="tipoCarroceria.errors?.['required']">O Tipo de Carroceria é inválido.</small>
+                                        </div>   
+
+                                        <div *ngIf="tipoCarroceria.value == 1">
+                                            <small style="color: red;" *ngIf="tipoCarroceria.errors?.['required']">Selcione um Tipo de Carroceria válido</small>
+                                        </div>   
+                                            
+                                    </div>
+
+                                    <!-- Tipo de Combustivel -->
+                                    <div class="form-group">
+
+                                        <select class="form-combobox" id="tipoCombustivel" required formControlName="tipoCombustivel" 
+                                        [value]="tipoCombustivel.value">
+                                            <option class="form-control-user" value ="1" selected>Selecione uma opção</option>
+                                            <option class="form-control-user" value="Gasolina">Gasolina</option>
+                                            <option class="form-control-user" value="Diesel">Diesel</option>
+                                            <option class="form-control-user" value="Elétrico">Elétrico</option>
+                                            <option class="form-control-user" value="Híbrido">Híbrido</option>
+                                            <option class="form-control-user" value="GPL">GPL</option>
+                                            <option class="form-control-user" value="Hidrogénio">Hidrogénio</option>
+                                        </select>
+
+                                        
+                                        <div *ngIf="tipoCombustivel.invalid && tipoCombustivel.touched">
+                                            <small style="color: red;" *ngIf="tipoCarroceria.errors?.['required']">O Tipo de Combustivel é inválido.</small>
+                                        </div>   
+
+                                        <div *ngIf="tipoCombustivel.value == 1">
+                                            <small style="color: red;" *ngIf="tipoCombustivel.errors?.['required']">Selcione um Tipo de Combustível válido</small>
+                                        </div>   
+                                            
+                                    </div>       
+
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 2%;" *ngIf="registerForm.valid && isSubmited && registSuccessful == true" class="alert alert-success" role="alert">
+                                    Utilizador Registado com Sucesso
+                                </div>
+
+                                <div style="margin-top: 2%;" *ngIf="!registerForm.valid && isSubmited && registSuccessful == false" class="alert alert-danger" role="alert">
+                                    Existem Erros no Formulario de Registo
+                                </div>
+
+                                <button class="btn btn-primary btn-user btn-block" style="background-color: #1CC8CA;" type="submit">
+                                    Registar
+                                </button>
+
+                                <!--<button class="btn btn-primary btn-user btn-block" style="background-color: #AD63FF; " (click)="goToMap()">
+                                    Ir para Mapa
+                                </button>-->
+
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="login">Já possui conta? Realize o Login!!</a>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>

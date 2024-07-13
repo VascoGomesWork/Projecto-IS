@@ -1,0 +1,26 @@
+  
+<google-map id="map" height="590px"
+            width="100%"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)" *ngIf="showMap">
+
+            <map-marker
+                *ngFor="let marker of markers;"
+                [position]="marker.position"
+                [icon]="marker.icon"
+                [title]="marker.title"
+                (mapClick)="getDisabledPark(markerElem, marker.info, marker.index)"
+                #markerElem="mapMarker">
+            </map-marker>
+
+            <map-directions-renderer *ngIf="directionsResult" [directions]="directionsResult"></map-directions-renderer>
+            <map-info-window *ngIf="selectedMarker != undefined" #infoWindow><app-park-details [marker]="selectedMarker"></app-park-details></map-info-window>
+
+</google-map>
+
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
+
+
